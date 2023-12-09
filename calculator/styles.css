@@ -1,0 +1,57 @@
+body {
+    font-family: 'Ubuntu Mono', monospace; /* Use a monospaced font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333; /* Dark background color */
+    color: #ddd; /* Light text color */
+  }
+  
+  .calculator {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    background-color: #222; /* Darker background for the form */
+    max-width: 300px;
+  }
+  
+  .app-name {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #bbb; /* Slightly lighter color for the title */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input,
+  select,
+  button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #444; /* Dark input background */
+    color: #ddd; /* Light input text */
+    border: none;
+  }
+  
+  input::placeholder,
+  select,
+  option {
+    color: #999; /* Lighter placeholder color for inputs and select */
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: #666; /* Slightly lighter background for the button */
+  }
+  
+  button:hover {
+    background-color: #555; /* Darker hover state for the button */
+  }
+  

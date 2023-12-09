@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>PRIYADHARSHINI</title>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="profile-info">
+                <div class="profile-photo">
+                    <img src="priya.jpg" alt="Your Name">
+                </div>
+                <div class="header-text">
+                    <h1>PRIYADHARSHINI</h1>
+                    <p>Web Developer | Creative Thinker</p>
+                </div>
+            </div>
+            <nav class="header-navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="scroll-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    Hi, I'm PRIYADHARSHINI, a passionate web developer with a keen interest in creating
+                    user-friendly and visually appealing websites. I have experience in HTML, CSS,
+                    and JavaScript, and I'm always eager to learn new technologies.
+                </p>
+            </div>
+            <div class="about-photo">
+                <img src="priya.jpg" alt="Your Name">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="scroll-section">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>Responsive Web Design</li>
+            <li>Web Accessibility</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="scroll-section">
+        <h2>Projects</h2>
+
+        <!-- Project 1: To-Do List Application -->
+        <div class="project">
+            <div class="project-info">
+                <h3>To-Do List Application</h3>
+                <p>
+                    Build a command-line or GUI-based to-do list application using Python. Allow users to add, remove, and view tasks. Implement features like marking tasks as completed, setting due dates, and saving tasks to a file for persistence.
+                </p>
+            </div>
+            <div class="project-image">
+                <img src="todolist.png" alt="To-Do List Application">
+            </div>
+        </div>
+
+        <!-- Project 2: Web Scraper -->
+        <div class="project">
+            <div class="project-info">
+                <h3>Web Scraper</h3>
+                <p>
+                    Create a web scraper using Python and libraries like BeautifulSoup or Scrapy. The scraper should extract information from a website, such as headlines, prices, or other relevant data. Display the extracted data in a user-friendly manner or store it in a structured format.
+                </p>
+            </div>
+            <div class="project-image">
+                <img src="webscrapper.png" alt="Web Scraper">
+            </div>
+        </div>
+
+        <!-- Add more projects as needed -->
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="scroll-section">
+        <h2>Resume</h2>
+        <p>Download my resume <a href="your-resume.pdf" target="_blank">here</a>.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="scroll-section">
+        <h2>Contact</h2>
+        <p>Email: priyadharshini@email.com</p>
+        <p>Phone: 7305352825</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 PRIYADHARSHINI. All rights reserved.</p>
+        <!-- Additional links or information can be added here -->
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var sections = document.querySelectorAll('.scroll-section');
+
+            function debounce(func, wait = 20, immediate = true) {
+                var timeout;
+                return function () {
+                    var context = this, args = arguments;
+                    var later = function () {
+                        timeout = null;
+                        if (!immediate) func.apply(context, args);
+                    };
+                    var callNow = immediate && !timeout;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                    if (callNow) func.apply(context, args);
+                };
+            }
+
+            function checkSlide() {
+                sections.forEach(section => {
+                    const slideInAt = (window.scrollY + window.innerHeight) - section.offsetHeight / 2;
+                    const sectionBottom = section.offsetTop + section.offsetHeight;
+                    const isHalfShown = slideInAt > section.offsetTop;
+                    const isNotScrolledPast = window.scrollY < sectionBottom;
+
+                    if (isHalfShown && isNotScrolledPast) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', debounce(checkSlide));
+        });
+    </script>
+
+</body>
+
+</html>
